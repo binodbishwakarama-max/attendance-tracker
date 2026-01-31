@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- PWA Support -->
     <link rel="manifest" href="manifest.json">
@@ -116,178 +117,6 @@
                 transform: scale(1);
             }
         }
-
-        /* Streak Counter Styles */
-        .streak-badge {
-            position: fixed;
-            top: 80px;
-            right: 15px;
-            background: linear-gradient(135deg, #FF6B35, #F7B32B);
-            color: white;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-            z-index: 1500;
-            animation: slideInRight 0.5s ease-out;
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        /* Motivational Banner */
-        .motivation-banner {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
-            color: white;
-            padding: 12px 20px;
-            border-radius: 12px;
-            margin: 15px;
-            text-align: center;
-            font-weight: 600;
-            animation: fadeInUp 0.6s ease-out;
-            box-shadow: 0 4px 15px rgba(0, 78, 137, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Pulse glow effect for important elements */
-        .pulse-glow {
-            animation: pulseGlow 2s infinite;
-        }
-
-        @keyframes pulseGlow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 0 0 10px rgba(46, 196, 182, 0);
-            }
-        }
-
-        /* Success flash animation */
-        @keyframes successFlash {
-            0% {
-                background-color: inherit;
-            }
-
-            50% {
-                background-color: rgba(46, 196, 182, 0.3);
-            }
-
-            100% {
-                background-color: inherit;
-            }
-        }
-
-        .success-flash {
-            animation: successFlash 0.5s ease-out;
-        }
-
-        /* Card hover lift effect */
-        .student-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .student-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Ripple effect */
-        .ripple {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ripple::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .ripple:active::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Loading skeleton */
-        .skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
-            }
-
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        /* Quick stats mini card */
-        .quick-stats {
-            display: flex;
-            justify-content: space-around;
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 15px;
-            margin: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .quick-stat-item {
-            text-align: center;
-        }
-
-        .quick-stat-value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-        }
-
-        .quick-stat-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
 
         .settings-menu {
             position: absolute;
@@ -709,14 +538,14 @@
             transform-origin: 50% 50%;
         }
 
-        /* Search Bar */
-        .search-container {
-            padding: 10px 20px 20px;
+        /* Sticky Controls */
+        .sticky-controls {
             position: sticky;
-            top: 65px;
-            z-index: 900;
-            background: transparent;
-            /* Changed for layering */
+            top: 0;
+            z-index: 1000;
+            background: inherit;
+            padding: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         .search-bar {
@@ -749,13 +578,16 @@
         /* NEW: View Mode Toggle */
         .view-toggle-container {
             display: flex;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(5px);
             padding: 5px;
             border-radius: 50px;
             max-width: 300px;
             margin: 0 auto;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: sticky;
+            top: 115px;
+            z-index: 1002;
         }
 
         .view-pill {
@@ -780,6 +612,11 @@
             background: white;
             color: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .students-container {
+            height: calc(100vh - 250px);
+            overflow-y: auto;
         }
 
         /* Student List */
@@ -958,6 +795,20 @@
 
         .btn-text {
             background: linear-gradient(135deg, #FF6B35, #F7B32B);
+        }
+
+        /* Mobile responsive for export buttons */
+        @media (max-width: 600px) {
+            .export-buttons div {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .export-btn {
+                flex: none;
+                min-width: 100px;
+                padding: 12px;
+                font-size: 0.8rem;
+            }
         }
 
         /* Sticky Bottom Bar */
@@ -1432,6 +1283,15 @@
                     <li>Draft Auto-save & Restore</li>
                     <li>Offline-first capability</li>
                     <li>Dark Mode & Battery Saver</li>
+                    <li>Smooth animations & sticky controls</li>
+                </ul>
+
+                <h4 style="margin-bottom:8px; display:flex; align-items:center; gap:5px;">📋 What's New in v1.1.0</h4>
+                <ul style="font-size:0.9rem; margin-bottom:20px; padding-left:20px; color:var(--text-muted);">
+                    <li>Added smooth fade-in animations for student cards</li>
+                    <li>Sticky search bar and filter tabs for better scrolling</li>
+                    <li>Mobile-responsive export buttons</li>
+                    <li>Enhanced PWA features (reverted for stability)</li>
                 </ul>
 
                 <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
@@ -1439,7 +1299,7 @@
                 <div style="text-align:center; font-size:0.85rem; color:var(--text-muted);">
                     Built with ❤️ by <br>
                     <strong>Binod Bishwakarma</strong>
-                    <div style="margin-top:4px; font-size:0.75rem;">Version v1.0.0</div>
+                    <div style="margin-top:4px; font-size:0.75rem;">Version v1.1.0</div>
                 </div>
             </div>
         </div>
@@ -1543,159 +1403,146 @@
                 <div class="settings-item" onclick="clearHistory()">
                     <span style="color:red;">🗑 Clear History</span>
                 </div>
+                <input type="file" id="restore-input" style="display: none;" onchange="restoreData(this)">
             </div>
-            <input type="file" id="restore-input" style="display: none;" onchange="restoreData(this)">
-    </div>
-    </header>
+        </header>
 
-    <!-- Streak Badge -->
-    <div id="streak-badge" class="streak-badge" style="display: none;">
-        🔥 <span id="streak-count">0</span> Day Streak!
-    </div>
-
-    <!-- Motivational Banner -->
-    <div id="motivation-banner" class="motivation-banner" style="display: none;">
-        <span id="motivation-text">Keep up the great work!</span>
-    </div>
-
-    <!-- History View -->
-    <div id="history-view">
-        <div class="history-header">
-            <h3>📚 Attendance History</h3>
-            <button class="h-btn" onclick="toggleHistory()">Close ✕</button>
+        <!-- History View -->
+        <div id="history-view">
+            <div class="history-header">
+                <h3>📚 Attendance History</h3>
+                <button class="h-btn" onclick="toggleHistory()">Close ✕</button>
+            </div>
+            <div id="history-list">
+                <!-- Records injected here -->
+            </div>
+            <button class="h-btn" style="width: 100%; margin-top: 20px; color: red; border-color: red;"
+                onclick="clearHistory()">Clear History</button>
         </div>
-        <div id="history-list">
-            <!-- Records injected here -->
+
+        <!-- History Banner (visible only when viewing old record) -->
+        <div id="history-banner">
+            Viewing Saved Record • <span style="text-decoration: underline; cursor: pointer;"
+                onclick="exitHistoryMode()">Return to Live</span>
         </div>
-        <button class="h-btn" style="width: 100%; margin-top: 20px; color: red; border-color: red;"
-            onclick="clearHistory()">Clear History</button>
-    </div>
 
-    <!-- History Banner (visible only when viewing old record) -->
-    <div id="history-banner">
-        Viewing Saved Record • <span style="text-decoration: underline; cursor: pointer;"
-            onclick="exitHistoryMode()">Return to Live</span>
-    </div>
+        <!-- Main Content -->
+        <div id="app-interface">
 
-    <!-- Main Content -->
-    <div id="app-interface">
+            <!-- Stats Grid -->
+            <section class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: var(--primary-teal)">✔</div>
+                    <div class="stat-value" id="count-present" style="color: var(--primary-teal)">0</div>
+                    <div class="stat-label">Present</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: var(--primary-orange)">✖</div>
+                    <div class="stat-value" id="count-absent" style="color: var(--primary-orange)">0</div>
+                    <div class="stat-label">Absent</div>
+                </div>
+                <div class="stat-card" style="padding: 5px;">
+                    <div
+                        style="position: relative; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="60" height="60" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="26" stroke="#E5E7EB" stroke-width="6" fill="none" />
+                            <circle id="progress-ring" class="progress-ring__circle" cx="30" cy="30" r="26"
+                                stroke="#004E89" stroke-width="6" fill="none" stroke-linecap="round"
+                                stroke-dasharray="163" stroke-dashoffset="0" />
+                        </svg>
+                        <span id="stats-percentage"
+                            style="position: absolute; font-size: 0.8rem; font-weight: 700; color: #004E89;">0%</span>
+                    </div>
+                </div>
+            </section>
+            <div id="class-strength" class="strength-indicator">Total Class Strength: 0</div>
 
-        <!-- Stats Grid -->
-        <section class="stats-container">
-            <div class="stat-card">
-                <div class="stat-icon" style="color: var(--primary-teal)">✔</div>
-                <div class="stat-value" id="count-present" style="color: var(--primary-teal)">0</div>
-                <div class="stat-label">Present</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon" style="color: var(--primary-orange)">✖</div>
-                <div class="stat-value" id="count-absent" style="color: var(--primary-orange)">0</div>
-                <div class="stat-label">Absent</div>
-            </div>
-            <div class="stat-card" style="padding: 5px;">
-                <div
-                    style="position: relative; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                    <svg width="60" height="60" viewBox="0 0 60 60">
-                        <circle cx="30" cy="30" r="26" stroke="#E5E7EB" stroke-width="6" fill="none" />
-                        <circle id="progress-ring" class="progress-ring__circle" cx="30" cy="30" r="26" stroke="#004E89"
-                            stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="163"
-                            stroke-dashoffset="0" />
+            <div class="sticky-controls">
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
-                    <span id="stats-percentage"
-                        style="position: absolute; font-size: 0.8rem; font-weight: 700; color: #004E89;">0%</span>
+                    <input type="text" id="search-input" placeholder="Search name, roll, or USN..." onkeyup="filterStudents()">
+                </div>
+                <div class="view-toggle-container">
+                    <div id="pill-all" class="view-pill active" onclick="setFilterMode('all')">Show All</div>
+                    <div id="pill-absent" class="view-pill" onclick="setFilterMode('absent')">Only Absent</div>
                 </div>
             </div>
-        </section>
-        <div id="class-strength" class="strength-indicator">Total Class Strength: 0</div>
 
-        <!-- Search & Filter -->
-        <div class="search-container">
-            <div class="search-bar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" id="search-input" placeholder="Search name, roll, or USN..."
-                    onkeyup="filterStudents()">
-            </div>
-
-            <!-- NEW: View Toggle -->
-            <div class="view-toggle-container">
-                <div id="pill-all" class="view-pill active" onclick="setFilterMode('all')">Show All</div>
-                <div id="pill-absent" class="view-pill" onclick="setFilterMode('absent')">Only Absent</div>
-            </div>
-        </div>
-
-        <!-- Student List -->
-        <div id="students-container" class="student-list">
-            <!-- Data injection here -->
-        </div>
-
-        <!-- Export Card -->
-        <div class="export-card">
-            <div class="export-title">Export Options</div>
-            <div class="export-buttons">
-                <div style="display: flex; gap: 10px;">
-                    <button class="export-btn" style="background: #1F2937;" onclick="generateAbsenteePDF()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="12" y1="18" x2="12" y2="12"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                        Absentee
-                    </button>
-                    <button class="export-btn" style="background: #4B5563;" onclick="generateFullPDF()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <path d="M17 21v-2a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        Full List
-                    </button>
-                    <button class="export-btn" style="background: #10B981;" onclick="generateExcel()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="8" y1="13" x2="16" y2="13"></line>
-                            <line x1="8" y1="17" x2="16" y2="17"></line>
-                            <line x1="10" y1="9" x2="8" y2="9"></line>
-                        </svg>
-                        Excel
-                    </button>
+            <div class="students-container">
+                <div id="students-container" class="student-list">
+                    <!-- Data injection here -->
                 </div>
-                <div style="display:flex; gap:10px;">
-                    <button class="export-btn btn-text" onclick="copyTextReport()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy Text
-                    </button>
-                    <button class="export-btn" style="background: #25D366;" onclick="shareToWhatsApp()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path
-                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-                            </path>
-                        </svg>
-                        WhatsApp
-                    </button>
+            </div>
+
+            <!-- Export Card -->
+            <div class="export-card">
+                <div class="export-title">Export Options</div>
+                <div class="export-buttons">
+                    <div style="display: flex; gap: 10px;">
+                        <button class="export-btn" style="background: #1F2937;" onclick="generateAbsenteePDF()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                            Absentee
+                        </button>
+                        <button class="export-btn" style="background: #4B5563;" onclick="generateFullPDF()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <path d="M17 21v-2a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Full List
+                        </button>
+                        <button class="export-btn" style="background: #10B981;" onclick="generateExcel()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="8" y1="13" x2="16" y2="13"></line>
+                                <line x1="8" y1="17" x2="16" y2="17"></line>
+                                <line x1="10" y1="9" x2="8" y2="9"></line>
+                            </svg>
+                            Excel
+                        </button>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="export-btn btn-text" onclick="copyTextReport()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Copy Text
+                        </button>
+                        <button class="export-btn" style="background: #25D366;" onclick="shareToWhatsApp()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                            WhatsApp
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 40px 20px; color: var(--text-dark); margin-top: auto; opacity: 0.8;">
-        <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">Built by Binod Bishwakarma</div>
-        <div style="font-size: 0.85rem; font-weight: 500; opacity: 0.9;">Version v1.0.0</div>
-    </footer>
+        <!-- Footer -->
+        <footer
+            style="text-align: center; padding: 40px 20px; color: var(--text-dark); margin-top: auto; opacity: 0.8;">
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">Built by Binod Bishwakarma</div>
+            <div style="font-size: 0.85rem; font-weight: 500; opacity: 0.9;">Version v1.1.0</div>
+        </footer>
     </div>
 
     <div class="bottom-bar">
@@ -2078,7 +1925,8 @@
                 const originalIndex = student.originalIndex;
                 const isFrequent = frequentAbsentees.has(student.roll.toString());
                 const card = document.createElement('div');
-                card.className = `student-card ${student.present ? 'present' : 'absent'} ${student.pinned ? 'pinned' : ''} ${isFrequent ? 'frequent-absent' : ''}`;
+                card.className = `student-card animate__animated animate__fadeInUp ${student.present ? 'present' : 'absent'} ${student.pinned ? 'pinned' : ''} ${isFrequent ? 'frequent-absent' : ''}`;
+                card.style.animationDelay = `${visibleCount * 0.05}s`;
 
                 // Event Listeners for Long Press & Click
                 card.onclick = (e) => toggleAttendance(originalIndex, e);
@@ -2994,142 +2842,6 @@
 
         initData();
         initDates();
-
-        // ==========================================
-        // UX Enhancements - Streak & Motivation
-        // ==========================================
-
-        const motivationalMessages = [
-            "🌟 Every student counts. Great job tracking!",
-            "📚 Consistency builds success. Keep it up!",
-            "🎯 You're making a difference today!",
-            "💪 Attendance matters. You're doing great!",
-            "✨ Another day of organized teaching!",
-            "🚀 Small steps lead to big achievements!",
-            "🌈 Your dedication is inspiring!",
-            "⭐ Excellence in every detail!",
-            "🔥 You're on fire! Keep the streak going!",
-            "💯 Precision and care. That's you!"
-        ];
-
-        function initStreak() {
-            const today = new Date().toDateString();
-            const streakData = JSON.parse(localStorage.getItem('streakData') || '{"count": 0, "lastDate": null}');
-
-            if (streakData.lastDate === today) {
-                // Already tracked today, just show streak
-                showStreak(streakData.count);
-            } else {
-                const yesterday = new Date();
-                yesterday.setDate(yesterday.getDate() - 1);
-
-                if (streakData.lastDate === yesterday.toDateString()) {
-                    // Consecutive day - increment streak
-                    streakData.count++;
-                } else if (streakData.lastDate !== today) {
-                    // Streak broken - reset to 1
-                    streakData.count = 1;
-                }
-
-                streakData.lastDate = today;
-                localStorage.setItem('streakData', JSON.stringify(streakData));
-                showStreak(streakData.count);
-            }
-        }
-
-        function showStreak(count) {
-            if (count >= 2) { // Show streak badge only if 2+ days
-                const badge = document.getElementById('streak-badge');
-                const countEl = document.getElementById('streak-count');
-                if (badge && countEl) {
-                    countEl.textContent = count;
-                    badge.style.display = 'flex';
-
-                    // Special celebration for milestones
-                    if (count === 7 || count === 30 || count === 100) {
-                        showToast(`🎉 Amazing! ${count} day streak!`);
-                    }
-                }
-            }
-        }
-
-        function showMotivation() {
-            const banner = document.getElementById('motivation-banner');
-            const textEl = document.getElementById('motivation-text');
-
-            if (banner && textEl) {
-                const randomMsg = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
-                textEl.textContent = randomMsg;
-                banner.style.display = 'block';
-
-                // Auto-hide after 5 seconds
-                setTimeout(() => {
-                    banner.style.opacity = '0';
-                    setTimeout(() => {
-                        banner.style.display = 'none';
-                        banner.style.opacity = '1';
-                    }, 500);
-                }, 5000);
-            }
-        }
-
-        function celebratePerfectAttendance() {
-            const present = students.filter(s => s.present).length;
-            if (present === students.length && students.length > 0) {
-                // 100% attendance! Celebrate!
-                showToast('🎉 Perfect Attendance! 100%!');
-                triggerConfetti();
-            }
-        }
-
-        function triggerConfetti() {
-            const container = document.getElementById('confetti-container');
-            if (!container) return;
-
-            const colors = ['#FF6B35', '#004E89', '#F7B32B', '#2EC4B6', '#FF4081'];
-
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.cssText = `
-                    position: fixed;
-                    width: 10px;
-                    height: 10px;
-                    background: ${colors[Math.floor(Math.random() * colors.length)]};
-                    left: ${Math.random() * 100}vw;
-                    top: -20px;
-                    border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
-                    animation: confettiFall ${2 + Math.random() * 3}s linear forwards;
-                    z-index: 9999;
-                `;
-                container.appendChild(confetti);
-
-                // Remove after animation
-                setTimeout(() => confetti.remove(), 5000);
-            }
-        }
-
-        // Add confetti animation if not exists
-        if (!document.querySelector('#confetti-style')) {
-            const style = document.createElement('style');
-            style.id = 'confetti-style';
-            style.textContent = `
-                @keyframes confettiFall {
-                    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-                    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
-        // Initialize streak when app starts
-        function initUXEnhancements() {
-            initStreak();
-            // Show motivation after a short delay
-            setTimeout(showMotivation, 1000);
-        }
-
-        // Call on app start
-        setTimeout(initUXEnhancements, 500);
 
         // ==========================================
         // PWA - Progressive Web App Support

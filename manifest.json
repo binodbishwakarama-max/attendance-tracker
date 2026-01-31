@@ -59,14 +59,5 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [],
-  "shortcuts": [
-    {
-      "name": "Take Attendance",
-      "short_name": "Attend",
-      "description": "Start a new attendance session",
-      "url": "./index.html",
-      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
-    }
-  ]
+  "screenshots": []
 }

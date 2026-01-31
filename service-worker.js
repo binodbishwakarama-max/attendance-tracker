@@ -1,6 +1,6 @@
 // Service Worker for Class Attendance Tracker PWA
 // Version-based cache busting
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v1.1.0';
 const CACHE_NAME = `attendance-tracker-${CACHE_VERSION}`;
 
 // Assets to cache for offline use
