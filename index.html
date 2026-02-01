@@ -45,7 +45,7 @@
     </div>
 
     <div id="toast" class="toast">
-        <span>âœ… Action Successful</span>
+        <span>✅ Action Successful</span>
     </div>
 
     <!-- Loading Overlay -->
@@ -57,13 +57,13 @@
     <!-- Settings Menu (moved to body level for proper z-index) -->
     <div id="settings-menu" class="settings-menu">
         <div class="settings-item" onclick="openManageClassesModal()">
-            <span>ðŸ« Manage Classes</span>
+            <span>🏫 Manage Classes</span>
         </div>
         <div class="settings-item" onclick="openManageModal()">
-            <span>âš™ Manage Class</span>
+            <span>⚙ Manage Class</span>
         </div>
         <div class="settings-item" onclick="openMonthlyReport()">
-            <span>ðŸ“Š Monthly Reports</span>
+            <span>📊 Monthly Reports</span>
         </div>
         <div class="settings-item">
             <span>Dark Mode</span>
@@ -80,26 +80,26 @@
             </label>
         </div>
         <div class="settings-item">
-            <span>ðŸ”Š Sound Effects</span>
+            <span>🔊 Sound Effects</span>
             <label class="switch">
                 <input type="checkbox" id="sound-toggle" onchange="toggleSound()" checked>
                 <span class="slider"></span>
             </label>
         </div>
         <div class="settings-item" onclick="undoLastAction()">
-            <span>â†© Undo Last Action</span>
+            <span>↩ Undo Last Action</span>
         </div>
         <div class="settings-item" onclick="resetApp()">
-            <span style="color:var(--primary-orange);">âš¡ Reset Session</span>
+            <span style="color:var(--primary-orange);">⚡ Reset Session</span>
         </div>
         <div class="settings-item" onclick="backupData()">
-            <span>ðŸ’¾ Backup Data</span>
+            <span>💾 Backup Data</span>
         </div>
         <div class="settings-item" onclick="triggerRestore()">
-            <span>ðŸ“‚ Restore Data</span>
+            <span>📂 Restore Data</span>
         </div>
         <div class="settings-item" onclick="clearHistory()">
-            <span style="color:red;">ðŸ—‘ Clear History</span>
+            <span style="color:red;">🗑 Clear History</span>
         </div>
         <input type="file" id="restore-input" style="display: none;" onchange="restoreData(this)">
     </div>
@@ -107,7 +107,7 @@
     <!-- Add Class Modal -->
     <div id="add-class-modal" class="modal-overlay" style="display:none;">
         <div class="modal-card" style="max-width: 400px; max-height: 85vh; overflow-y: auto;">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">ðŸ«</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">🏫</div>
             <div class="modal-title">Add New Class</div>
 
             <!-- Class Info -->
@@ -120,7 +120,7 @@
 
             <!-- Subjects Section -->
             <div style="border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px;">
-                <h4 style="margin: 0 0 12px 0; font-size: 0.95rem; color: #333;">ðŸ“š Subjects for this class</h4>
+                <h4 style="margin: 0 0 12px 0; font-size: 0.95rem; color: #333;">📚 Subjects for this class</h4>
                 <div id="new-class-subjects-list"
                     style="display: flex; flex-direction: column; gap: 8px; max-height: 200px; overflow-y: auto; margin-bottom: 12px;">
                     <!-- Subjects populated here -->
@@ -144,7 +144,7 @@
     <!-- Manage Classes Modal -->
     <div id="manage-classes-modal" class="modal-overlay" style="display:none;">
         <div class="modal-card" style="max-width: 400px; max-height: 80vh; overflow-y: auto;">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">ðŸ«</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">🏫</div>
             <div class="modal-title">Manage Classes</div>
             <div id="classes-list" style="margin: 15px 0; display: flex; flex-direction: column; gap: 10px;">
                 <!-- Classes populated here -->
@@ -160,7 +160,7 @@
     <!-- Class Switcher Modal (Quick Switch) -->
     <div id="class-switcher-modal" class="modal-overlay" style="display:none;">
         <div class="modal-card" style="max-width: 320px;">
-            <div style="font-size: 2rem; margin-bottom: 10px;">ðŸ”„</div>
+            <div style="font-size: 2rem; margin-bottom: 10px;">🔄</div>
             <div class="modal-title">Switch Class</div>
             <div id="class-switcher-list" style="margin: 15px 0; display: flex; flex-direction: column; gap: 8px;">
                 <!-- Classes populated here -->
@@ -174,7 +174,7 @@
     <!-- Restore Draft Modal -->
     <div id="restore-modal" class="modal-overlay">
         <div class="modal-card">
-            <div style="font-size: 3rem; margin-bottom: 10px;">ðŸ’¾</div>
+            <div style="font-size: 3rem; margin-bottom: 10px;">💾</div>
             <div class="modal-title">Unsaved Draft Found</div>
             <div class="modal-text">You have an unsaved attendance session from <span id="draft-time"></span>. Do you
                 want to restore it?</div>
@@ -198,7 +198,7 @@
                 <p style="margin-bottom:15px;"><strong>Class Attendance Tracker</strong> is a modern offline-first
                     system designed for fast classroom usage.</p>
 
-                <h4 style="margin-bottom:8px; display:flex; align-items:center; gap:5px;">ðŸš€ Key Features</h4>
+                <h4 style="margin-bottom:8px; display:flex; align-items:center; gap:5px;">🚀 Key Features</h4>
                 <ul style="font-size:0.9rem; margin-bottom:20px; padding-left:20px; color:var(--text-muted);">
                     <li>Mobile-first design</li>
                     <li>Subject-based attendance</li>
@@ -211,7 +211,7 @@
                     <li>Smooth animations & sticky controls</li>
                 </ul>
 
-                <h4 style="margin-bottom:8px; display:flex; align-items:center; gap:5px;">ðŸ“‹ What's New in v1.1.0</h4>
+                <h4 style="margin-bottom:8px; display:flex; align-items:center; gap:5px;">📋 What's New in v1.1.0</h4>
                 <ul style="font-size:0.9rem; margin-bottom:20px; padding-left:20px; color:var(--text-muted);">
                     <li>Added smooth fade-in animations for student cards</li>
                     <li>Sticky search bar and filter tabs for better scrolling</li>
@@ -222,7 +222,7 @@
                 <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
 
                 <div style="text-align:center; font-size:0.85rem; color:var(--text-muted);">
-                    Built with â¤ï¸ by <br>
+                    Built with ❤️ by <br>
                     <strong>Binod Bishwakarma</strong>
                     <div style="margin-top:4px; font-size:0.75rem;">Version v1.1.0</div>
                 </div>
@@ -253,21 +253,21 @@
 
                 <!-- Import Section -->
                 <div style="border-top: 1px solid #E5E7EB; padding-top: 15px; margin-bottom: 15px;">
-                    <h4 style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-muted);">ðŸ“¥ Import Students
+                    <h4 style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-muted);">📥 Import Students
                     </h4>
                     <div style="display: flex; gap: 8px;">
                         <button onclick="document.getElementById('import-csv-input').click()"
                             style="flex:1; padding:10px; background:#F3F4F6; color:#374151; border:1px solid #E5E7EB; border-radius:8px; font-weight:600; cursor:pointer;">
-                            ðŸ“„ CSV
+                            📄 CSV
                         </button>
                         <button onclick="document.getElementById('import-excel-input').click()"
                             style="flex:1; padding:10px; background:#F3F4F6; color:#374151; border:1px solid #E5E7EB; border-radius:8px; font-weight:600; cursor:pointer;">
-                            ðŸ“Š Excel
+                            📊 Excel
                         </button>
                         <button onclick="showImportHelp()"
                             style="padding:10px 14px; background:#F3F4F6; color:#374151; border:1px solid #E5E7EB; border-radius:8px; cursor:pointer;"
                             title="Help">
-                            â“
+                            ❓
                         </button>
                     </div>
                     <input type="file" id="import-csv-input" accept=".csv" style="display:none;"
@@ -317,7 +317,7 @@
             <!-- Save Button -->
             <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #E5E7EB;">
                 <button onclick="saveClassConfig()"
-                    style="width:100%; padding:14px; background:var(--primary-blue); color:white; border:none; border-radius:10px; font-weight:700; cursor:pointer;">ðŸ’¾
+                    style="width:100%; padding:14px; background:var(--primary-blue); color:white; border:none; border-radius:10px; font-weight:700; cursor:pointer;">💾
                     Save Changes</button>
             </div>
         </div>
@@ -328,7 +328,7 @@
         style="display:none;">
         <div class="modal-card" style="max-width: 500px; max-height: 85vh; overflow-y: auto;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                <h3 class="modal-title" style="margin:0;">ðŸ“Š Monthly Reports</h3>
+                <h3 class="modal-title" style="margin:0;">📊 Monthly Reports</h3>
                 <button onclick="closeReportsModal()"
                     style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--text-muted);">&times;</button>
             </div>
@@ -355,7 +355,7 @@
     <div id="welcome-screen">
         <div class="date-pill" id="welcome-date">Jan 01, 2024</div>
         <h1 class="welcome-title">Class<br>Attendance</h1>
-        <p class="welcome-subtitle">Fast â€¢ Simple â€¢ Paperless</p>
+        <p class="welcome-subtitle">Fast • Simple • Paperless</p>
 
         <!-- Class Selector -->
         <div class="class-selector-container">
@@ -364,7 +364,7 @@
             </select>
             <div style="display: flex; gap: 8px; margin-top: 8px;">
                 <button class="add-class-btn" onclick="openAddClassModal()" style="flex: 1;">+ Add Class</button>
-                <button class="add-class-btn" onclick="openManageClassesModal()" style="flex: 1;">âš™ Manage</button>
+                <button class="add-class-btn" onclick="openManageClassesModal()" style="flex: 1;">⚙ Manage</button>
             </div>
         </div>
 
@@ -458,15 +458,15 @@
         <!-- History View -->
         <div id="history-view">
             <div class="history-header">
-                <h3>ðŸ“š Attendance History</h3>
-                <button class="h-btn" onclick="toggleHistory()">Close âœ•</button>
+                <h3>📚 Attendance History</h3>
+                <button class="h-btn" onclick="toggleHistory()">Close ✕</button>
             </div>
             <div style="padding: 0 15px 15px; display: flex; gap: 8px;">
-                <input type="text" id="history-search" placeholder="ðŸ” Search by date or subject..."
+                <input type="text" id="history-search" placeholder="🔍 Search by date or subject..."
                     oninput="filterHistory()"
                     style="flex:1; padding: 12px 15px; border: 1px solid #E5E7EB; border-radius: 10px; font-size: 0.95rem; outline: none;">
                 <button onclick="clearHistorySearch()"
-                    style="padding: 12px 15px; border: 1px solid #E5E7EB; border-radius: 10px; background: white; cursor: pointer;">âœ•</button>
+                    style="padding: 12px 15px; border: 1px solid #E5E7EB; border-radius: 10px; background: white; cursor: pointer;">✕</button>
             </div>
             <div id="history-list">
                 <!-- Records injected here -->
@@ -477,7 +477,7 @@
 
         <!-- History Banner (visible only when viewing old record) -->
         <div id="history-banner">
-            Viewing Saved Record â€¢ <span style="text-decoration: underline; cursor: pointer;"
+            Viewing Saved Record • <span style="text-decoration: underline; cursor: pointer;"
                 onclick="exitHistoryMode()">Return to Live</span>
         </div>
 
@@ -487,12 +487,12 @@
             <!-- Stats Grid -->
             <section class="stats-container">
                 <div class="stat-card">
-                    <div class="stat-icon" style="color: var(--primary-teal)">âœ”</div>
+                    <div class="stat-icon" style="color: var(--primary-teal)">✔</div>
                     <div class="stat-value" id="count-present" style="color: var(--primary-teal)">0</div>
                     <div class="stat-label">Present</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon" style="color: var(--primary-orange)">âœ–</div>
+                    <div class="stat-icon" style="color: var(--primary-orange)">✖</div>
                     <div class="stat-value" id="count-absent" style="color: var(--primary-orange)">0</div>
                     <div class="stat-label">Absent</div>
                 </div>
@@ -561,7 +561,7 @@
                 <!-- Session Notes -->
                 <div class="session-notes-container">
                     <label class="session-notes-label">
-                        ðŸ“ Session Notes (optional)
+                        📝 Session Notes (optional)
                     </label>
                     <textarea id="session-notes" class="session-notes-input"
                         placeholder="Add notes for this session... (e.g., 'Test day', 'Late arrivals due to rain', 'Lab practical batch A')"></textarea>
@@ -649,7 +649,7 @@
         </div>
 
         <div class="summary-card-container">
-            <div class="summary-highlight" id="summary-icon">âœ…</div>
+            <div class="summary-highlight" id="summary-icon">✅</div>
             <h2 class="summary-title" id="summary-subject">Subject Name</h2>
             <p class="summary-subtitle" id="summary-date">Jan 01, 2024</p>
 
@@ -669,10 +669,10 @@
             </div>
 
             <div class="top-absentee-card">
-                <div class="ta-header">âš ï¸ Top Absentee (All Time)</div>
+                <div class="ta-header">⚠️ Top Absentee (All Time)</div>
                 <div id="ta-content">
                     <div class="ta-name" id="ta-name">Loading...</div>
-                    <div class="ta-details" id="ta-desc">USN: ... â€¢ Total Absences: ...</div>
+                    <div class="ta-details" id="ta-desc">USN: ... • Total Absences: ...</div>
                 </div>
             </div>
 
@@ -704,7 +704,7 @@
                     View History Insights
                 </button>
                 <button class="btn-summary btn-s-home" onclick="goHome()">
-                    ðŸ  Back Home
+                    🏠 Back Home
                 </button>
             </div>
         </div>
@@ -715,14 +715,14 @@
         style="display:none; opacity:0; transition: opacity 0.3s ease;">
         <div class="modal-card" style="max-width: 420px; max-height: 85vh; overflow-y: auto;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                <h3 class="modal-title" style="margin:0;">â„¹ï¸ About</h3>
+                <h3 class="modal-title" style="margin:0;">ℹ️ About</h3>
                 <button onclick="toggleAbout()"
                     style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--text-muted);">&times;</button>
             </div>
 
             <!-- App Info -->
             <div style="text-align: center; padding: 20px 0; border-bottom: 1px solid #E5E7EB;">
-                <div style="font-size: 3rem; margin-bottom: 10px;">ðŸ“š</div>
+                <div style="font-size: 3rem; margin-bottom: 10px;">📚</div>
                 <h2 style="margin: 0 0 5px 0; color: var(--primary-blue);">Class Attendance Tracker</h2>
                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary-teal);">Version 1.2.0</div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Released: February 1, 2026
@@ -739,12 +739,12 @@
 
             <!-- Changelog -->
             <div style="padding: 15px 0;">
-                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">ðŸ“‹
+                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">📋
                     What's New in v1.2.0</div>
 
                 <div
                     style="background: #F0FDF4; border-left: 3px solid #10B981; padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 10px;">
-                    <div style="font-weight: 600; color: #166534; font-size: 0.85rem;">âœ¨ New Features</div>
+                    <div style="font-weight: 600; color: #166534; font-size: 0.85rem;">✨ New Features</div>
                     <ul style="margin: 8px 0 0 0; padding-left: 18px; font-size: 0.85rem; color: #166534;">
                         <li>About section with version info & changelog</li>
                         <li>Improved version control workflow</li>
@@ -754,7 +754,7 @@
 
                 <div
                     style="background: #FEF3C7; border-left: 3px solid #F59E0B; padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 10px;">
-                    <div style="font-weight: 600; color: #92400E; font-size: 0.85rem;">ðŸ”§ Improvements</div>
+                    <div style="font-weight: 600; color: #92400E; font-size: 0.85rem;">🔧 Improvements</div>
                     <ul style="margin: 8px 0 0 0; padding-left: 18px; font-size: 0.85rem; color: #92400E;">
                         <li>Enhanced UI responsiveness</li>
                         <li>Better offline support</li>
@@ -764,7 +764,7 @@
 
                 <div
                     style="background: #EFF6FF; border-left: 3px solid #3B82F6; padding: 12px; border-radius: 0 8px 8px 0;">
-                    <div style="font-weight: 600; color: #1E40AF; font-size: 0.85rem;">ðŸ“ Previous Updates (v1.1.0)
+                    <div style="font-weight: 600; color: #1E40AF; font-size: 0.85rem;">📝 Previous Updates (v1.1.0)
                     </div>
                     <ul style="margin: 8px 0 0 0; padding-left: 18px; font-size: 0.85rem; color: #1E40AF;">
                         <li>Multi-class support</li>
@@ -778,8 +778,8 @@
 
             <!-- Footer -->
             <div style="text-align: center; padding-top: 15px; border-top: 1px solid #E5E7EB;">
-                <div style="font-size: 0.8rem; color: var(--text-muted);">Made with â¤ï¸ for educators</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 5px;">Â© 2026 Class Attendance
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Made with ❤️ for educators</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 5px;">© 2026 Class Attendance
                     Tracker</div>
             </div>
         </div>

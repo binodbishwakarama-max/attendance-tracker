@@ -316,7 +316,7 @@
                         onchange="updateNewClassSubject(${idx}, this.value)"
                         style="flex: 1; padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
                     <button onclick="deleteNewClassSubject(${idx})" 
-                        style="padding: 6px 10px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer;">ðŸ—‘</button>
+                        style="padding: 6px 10px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer;">🗑</button>
                 `;
                 list.appendChild(item);
             });
@@ -402,12 +402,12 @@
                 item.innerHTML = `
                     <div>
                         <div style="font-weight: 600;">${cls.name} - ${cls.section}</div>
-                        <div style="font-size: 0.85rem; color: #666;">${cls.students.length} students â€¢ ${cls.subjects.length} subjects</div>
+                        <div style="font-size: 0.85rem; color: #666;">${cls.students.length} students • ${cls.subjects.length} subjects</div>
                     </div>
                     <div style="display: flex; gap: 8px;">
                         ${cls.id === currentClassId ? '<span style="padding: 4px 10px; background: var(--primary-teal); color: white; border-radius: 12px; font-size: 0.75rem;">Active</span>' :
                         `<button onclick="quickSwitchClass('${cls.id}')" style="padding: 6px 12px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">Switch</button>`}
-                        <button onclick="deleteClass('${cls.id}')" style="padding: 6px 10px; background: #ef4444; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">ðŸ—‘</button>
+                        <button onclick="deleteClass('${cls.id}')" style="padding: 6px 10px; background: #ef4444; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🗑</button>
                     </div>
                 `;
                 list.appendChild(item);
@@ -506,7 +506,7 @@
 
         function initApp() {
             // Debug: Log localStorage state on load
-            console.log('ðŸ” App Init - localStorage state:', {
+            console.log('🔍 App Init - localStorage state:', {
                 allClasses: localStorage.getItem('allClasses') ? JSON.parse(localStorage.getItem('allClasses')).length + ' classes' : 'empty',
                 currentClassId: localStorage.getItem('currentClassId'),
                 attendanceHistory: localStorage.getItem('attendanceHistory') ? JSON.parse(localStorage.getItem('attendanceHistory')).length + ' records' : 'empty',
@@ -529,7 +529,7 @@
             calculateFrequentAbsentees();
 
             // Debug: Log after initialization
-            console.log('âœ… After init - students:', students.length, 'classes:', allClasses.length);
+            console.log('✅ After init - students:', students.length, 'classes:', allClasses.length);
         }
 
         function initClassConfig() {
@@ -542,7 +542,7 @@
 
         function renderSubjectsDropdown() {
             const select = document.getElementById('subject-input');
-            console.log('ðŸŽ“ Rendering subjects:', classConfig.subjects);
+            console.log('🎓 Rendering subjects:', classConfig.subjects);
             select.innerHTML = '<option value="" disabled selected>Select Subject</option>';
             classConfig.subjects.forEach(sub => {
                 const opt = document.createElement('option');
@@ -606,7 +606,7 @@
         function handleOffline() {
             isOnline = false;
             updateOfflineBadge();
-            showNetworkStatus('offline', 'ðŸ“¡ You are offline - Changes saved locally');
+            showNetworkStatus('offline', '📡 You are offline - Changes saved locally');
         }
 
         function handleOnline() {
@@ -616,10 +616,10 @@
             // Check for pending syncs
             const pendingCount = getPendingSyncCount();
             if (pendingCount > 0) {
-                showNetworkStatus('syncing', `ðŸ”„ Back online - Syncing ${pendingCount} pending changes...`);
+                showNetworkStatus('syncing', `🔄 Back online - Syncing ${pendingCount} pending changes...`);
                 syncPendingChanges();
             } else {
-                showNetworkStatus('online', 'âœ… Back online');
+                showNetworkStatus('online', '✅ Back online');
             }
         }
 
@@ -704,7 +704,7 @@
 
             setTimeout(() => {
                 localStorage.removeItem('pendingSyncs');
-                showNetworkStatus('online', 'âœ… All changes synced!');
+                showNetworkStatus('online', '✅ All changes synced!');
             }, 1500);
         }
 
@@ -835,7 +835,7 @@
             // Init Audio Context on first interaction
             initAudio();
 
-            showToast('âœ¨ New session started - all present');
+            showToast('✨ New session started - all present');
         }
 
         function getAvatar(name) { return name.charAt(0).toUpperCase(); }
@@ -910,18 +910,18 @@
                     </div>
                     <div class="student-info">
                         <div class="student-name">
-                            <span class="pinned-icon">ðŸ“Œ</span>
+                            <span class="pinned-icon">📌</span>
                             ${student.name}
                         </div>
                         <div class="student-usn">
-                            ${isFrequent ? '<span class="warn-icon" title="Frequently Absent">âš ï¸</span>' : ''}
+                            ${isFrequent ? '<span class="warn-icon" title="Frequently Absent">⚠️</span>' : ''}
                             ${student.usn}
                         </div>
                     </div>
                     <div class="status-toggle">
-                         <button style="background:transparent; border:none; margin-right:5px; cursor:pointer; opacity:0.5;" onclick="togglePin(${originalIndex}, event)">${student.pinned ? 'â­' : 'â˜†'}</button>
-                        <button class="toggle-btn present-btn ${student.present ? 'active' : ''}" onclick="setAttendance(${originalIndex}, true, event)">âœ”</button>
-                        <button class="toggle-btn absent-btn ${!student.present ? 'active' : ''}" onclick="setAttendance(${originalIndex}, false, event)">âœ–</button>
+                         <button style="background:transparent; border:none; margin-right:5px; cursor:pointer; opacity:0.5;" onclick="togglePin(${originalIndex}, event)">${student.pinned ? '⭐' : '☆'}</button>
+                        <button class="toggle-btn present-btn ${student.present ? 'active' : ''}" onclick="setAttendance(${originalIndex}, true, event)">✔</button>
+                        <button class="toggle-btn absent-btn ${!student.present ? 'active' : ''}" onclick="setAttendance(${originalIndex}, false, event)">✖</button>
                     </div>
                 `;
                 studentContainer.appendChild(card);
@@ -930,7 +930,7 @@
             if (visibleCount === 0 && currentFilter === 'absent') {
                 studentContainer.innerHTML = `
                     <div style="text-align: center; padding: 40px; color: var(--primary-teal);">
-                        <div style="font-size: 3rem; margin-bottom: 10px;">ðŸŽ‰</div>
+                        <div style="font-size: 3rem; margin-bottom: 10px;">🎉</div>
                         <h3>No absentees!</h3>
                     </div>
                 `;
@@ -1046,11 +1046,11 @@
                 if (deltaX > 0) {
                     // Swipe right = Present
                     setAttendance(index, true);
-                    showToast('âœ“ Marked Present');
+                    showToast('✓ Marked Present');
                 } else {
                     // Swipe left = Absent
                     setAttendance(index, false);
-                    showToast('âœ— Marked Absent');
+                    showToast('✗ Marked Absent');
                 }
             }
 
@@ -1129,7 +1129,7 @@
 
             if (absent > 0) {
                 bubbleEl.style.display = 'flex';
-                bubbleEl.innerHTML = `<span>${absent}</span> Absentees <span style="font-size:0.8rem; margin-left:5px">â¬‡</span>`;
+                bubbleEl.innerHTML = `<span>${absent}</span> Absentees <span style="font-size:0.8rem; margin-left:5px">⬇</span>`;
                 bubbleEl.onclick = scrollToFirstAbsent;
             } else {
                 bubbleEl.style.display = 'none';
@@ -1296,7 +1296,7 @@
             students.forEach((s, i) => s.originalIndex = i);
 
             renderStudents();
-            showToast(`Sorted by ${sortBy} ${sortAscending ? 'â†‘' : 'â†“'}`);
+            showToast(`Sorted by ${sortBy} ${sortAscending ? '↑' : '↓'}`);
         }
 
         function filterStudents() {
@@ -1421,7 +1421,7 @@
                 } else if (e.key.toLowerCase() === 's' && e.ctrlKey) {
                     e.preventDefault();
                     saveAttendanceRecord(); // Ctrl+S to save
-                    showToast('ðŸ’¾ Attendance saved!');
+                    showToast('💾 Attendance saved!');
                 } else if (e.key.toLowerCase() === 'f' && e.ctrlKey) {
                     e.preventDefault();
                     document.getElementById('search-input').focus(); // Ctrl+F to focus search
@@ -1436,7 +1436,7 @@
                 return;
             }
 
-            console.log('ðŸ”„ beforeunload - saving draft...', {
+            console.log('🔄 beforeunload - saving draft...', {
                 students: students.length,
                 currentSubject: currentSubject,
                 appVisible: document.getElementById('app-interface').style.display
@@ -1455,7 +1455,7 @@
                     lastSaved: Date.now()
                 };
                 localStorage.setItem('attendanceDraft', JSON.stringify(draft));
-                console.log('âœ… Draft saved on unload');
+                console.log('✅ Draft saved on unload');
             }
             // Also save multi-class state
             saveAllClasses();
@@ -1644,7 +1644,7 @@
 
                 // Notes badge if notes exist
                 const notesBadge = record.notes ?
-                    `<div class="notes-badge" onclick="showSessionNotes('${record.id || record.date}')" title="View notes">ðŸ“ ${record.notes.length > 25 ? record.notes.substring(0, 25) + '...' : record.notes}</div>` : '';
+                    `<div class="notes-badge" onclick="showSessionNotes('${record.id || record.date}')" title="View notes">📝 ${record.notes.length > 25 ? record.notes.substring(0, 25) + '...' : record.notes}</div>` : '';
 
                 card.innerHTML = `
                     <div class="h-card-header">
@@ -1657,9 +1657,9 @@
                     </div>
                     ${notesBadge}
                     <div class="h-actions">
-                        <button class="h-btn primary" onclick="loadHistoryRecord('${record.id || record.date}')">ðŸ“‚ Open</button>
-                        <button class="h-btn" onclick="downloadHistoryPDF('${record.id || record.date}')">ðŸ“„ PDF</button>
-                        <button class="h-btn" style="background:#10B981; color:white; border:none;" onclick="downloadHistoryExcel('${record.id || record.date}')">ðŸ“Š XLS</button>
+                        <button class="h-btn primary" onclick="loadHistoryRecord('${record.id || record.date}')">📂 Open</button>
+                        <button class="h-btn" onclick="downloadHistoryPDF('${record.id || record.date}')">📄 PDF</button>
+                        <button class="h-btn" style="background:#10B981; color:white; border:none;" onclick="downloadHistoryExcel('${record.id || record.date}')">📊 XLS</button>
                     </div>
                 `;
                 list.appendChild(card);
@@ -1678,7 +1678,7 @@
                 modal.style.display = 'flex';
                 modal.innerHTML = `
                     <div class="edit-modal-content animate__animated animate__fadeInUp" style="max-width: 400px;">
-                        <h3 style="margin: 0 0 10px 0; color: var(--text-primary);">ðŸ“ Session Notes</h3>
+                        <h3 style="margin: 0 0 10px 0; color: var(--text-primary);">📝 Session Notes</h3>
                         <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 15px 0;">
                             ${record.subject} - ${record.displayDate}
                         </p>
@@ -1758,7 +1758,7 @@
             // Reset class selector to show "Select Class"
             renderClassSelector();
 
-            showToast('ðŸ  Returned to home');
+            showToast('🏠 Returned to home');
         }
 
         // --- Backup & Restore ---
@@ -1882,7 +1882,7 @@
 
         function checkForDrafts() {
             const draft = localStorage.getItem('attendanceDraft');
-            console.log('ðŸ” Checking for drafts:', draft ? 'found' : 'none');
+            console.log('🔍 Checking for drafts:', draft ? 'found' : 'none');
 
             if (draft) {
                 const data = JSON.parse(draft);
@@ -1891,13 +1891,13 @@
 
                 // Auto-restore if draft is from same day (less than 12 hours old)
                 const hoursDiff = (now - draftDate) / (1000 * 60 * 60);
-                console.log('ðŸ“‹ Draft age:', hoursDiff.toFixed(2), 'hours, students:', data.students?.length);
+                console.log('📋 Draft age:', hoursDiff.toFixed(2), 'hours, students:', data.students?.length);
 
                 if (hoursDiff < 12) {
                     // Auto-restore recent draft
-                    console.log('âœ… Auto-restoring draft...');
+                    console.log('✅ Auto-restoring draft...');
                     restoreDraft();
-                    showToast('ðŸ“‹ Session auto-restored');
+                    showToast('📋 Session auto-restored');
                 } else {
                     // Ask for older drafts
                     document.getElementById('draft-time').textContent = draftDate.toLocaleString();
@@ -2020,13 +2020,13 @@
             // Set icon based on attendance
             const icon = document.getElementById('summary-icon');
             if (percentage >= 90) {
-                icon.textContent = 'ðŸŽ‰';
+                icon.textContent = '🎉';
             } else if (percentage >= 75) {
-                icon.textContent = 'âœ…';
+                icon.textContent = '✅';
             } else if (percentage >= 50) {
-                icon.textContent = 'âš ï¸';
+                icon.textContent = '⚠️';
             } else {
-                icon.textContent = 'âŒ';
+                icon.textContent = '❌';
             }
 
             // Find top absentee from history
@@ -2053,7 +2053,7 @@
 
             if (topAbsentee) {
                 document.getElementById('ta-name').textContent = topAbsentee.name;
-                document.getElementById('ta-desc').textContent = `USN: ${topAbsentee.usn} â€¢ Total Absences: ${topAbsentee.count}`;
+                document.getElementById('ta-desc').textContent = `USN: ${topAbsentee.usn} • Total Absences: ${topAbsentee.count}`;
             } else {
                 document.getElementById('ta-name').textContent = 'No data';
                 document.getElementById('ta-desc').textContent = 'Not enough history to determine';
@@ -2191,7 +2191,7 @@
             } catch (error) {
                 hideLoading();
                 console.error('PDF generation error:', error);
-                showToast("âŒ Failed to generate PDF");
+                showToast("❌ Failed to generate PDF");
             }
         }
 
@@ -2241,7 +2241,7 @@
             } catch (error) {
                 hideLoading();
                 console.error('PDF generation error:', error);
-                showToast("âŒ Failed to generate PDF");
+                showToast("❌ Failed to generate PDF");
             }
         }
 
@@ -2251,8 +2251,8 @@
             let text = `Attendance Report - ${currentSubject} (${dateStr})\n`;
             text += `Total: ${students.length} | Present: ${students.filter(s => s.present).length} | Absent: ${absentList.length}\n\n`;
             if (absentList.length === 0) { text += "All Present."; }
-            else { text += "Absentees:\n"; absentList.forEach(s => { text += `[${s.roll}]${s.pinned ? 'â­' : ''} ${s.name} (${s.usn})\n`; }); }
-            navigator.clipboard.writeText(text).then(() => { showToast("ðŸ“‹ Copied to clipboard!"); }).catch(err => { showToast("âŒ Failed to copy"); });
+            else { text += "Absentees:\n"; absentList.forEach(s => { text += `[${s.roll}]${s.pinned ? '⭐' : ''} ${s.name} (${s.usn})\n`; }); }
+            navigator.clipboard.writeText(text).then(() => { showToast("📋 Copied to clipboard!"); }).catch(err => { showToast("❌ Failed to copy"); });
         }
 
         function shareToWhatsApp() {
@@ -2262,11 +2262,11 @@
             text += `Total: ${students.length} | Present: ${students.filter(s => s.present).length} | Absent: ${absentList.length}\n\n`;
 
             if (absentList.length === 0) {
-                text += "All Present. ðŸŽ‰";
+                text += "All Present. 🎉";
             } else {
                 text += "*Absentees:*\n";
                 absentList.forEach(s => {
-                    text += `â€¢ ${s.name} (${s.roll})\n`;
+                    text += `• ${s.name} (${s.roll})\n`;
                 });
             }
 
@@ -2321,7 +2321,7 @@
             } catch (error) {
                 hideLoading();
                 console.error('Excel generation error:', error);
-                showToast("âŒ Failed to generate Excel");
+                showToast("❌ Failed to generate Excel");
             }
         }
 
@@ -2476,7 +2476,7 @@
                 </div>
                 
                 <!-- Subject-wise Chart -->
-                <h4 style="margin-bottom: 10px; color: var(--text-dark);">ðŸ“š Subject-wise Attendance</h4>
+                <h4 style="margin-bottom: 10px; color: var(--text-dark);">📚 Subject-wise Attendance</h4>
                 <div style="background: #f8f9fa; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
             `;
 
@@ -2505,7 +2505,7 @@
 
             // Daily attendance chart
             html += `
-                <h4 style="margin-bottom: 10px; color: var(--text-dark);">ðŸ“… Daily Attendance</h4>
+                <h4 style="margin-bottom: 10px; color: var(--text-dark);">📅 Daily Attendance</h4>
                 <div style="background: #f8f9fa; border-radius: 10px; padding: 15px; margin-bottom: 20px; overflow-x: auto;">
                     <div style="display: flex; align-items: flex-end; gap: 4px; height: 120px; min-width: fit-content;">
             `;
@@ -2546,7 +2546,7 @@
 
             if (sortedAbsences.length > 0) {
                 html += `
-                    <h4 style="margin-bottom: 10px; color: var(--text-dark);">âš ï¸ Top Absentees This Month</h4>
+                    <h4 style="margin-bottom: 10px; color: var(--text-dark);">⚠️ Top Absentees This Month</h4>
                     <div style="background: #FEF3C7; border-radius: 10px; padding: 15px;">
                 `;
 
@@ -2567,7 +2567,7 @@
             // Download button
             html += `
                 <button onclick="downloadMonthlyReport()" style="width: 100%; margin-top: 20px; padding: 14px; background: var(--primary-blue); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer;">
-                    ðŸ“„ Download PDF Report
+                    📄 Download PDF Report
                 </button>
             `;
 
@@ -2688,8 +2688,8 @@
                         <div style="font-size:0.8rem; color:var(--text-muted);">${s.usn}</div>
                     </div>
                     <div style="display:flex; gap:8px;">
-                        <button onclick="editStudent(${idx})" title="Edit">âœï¸</button>
-                        <button onclick="deleteStudent(${idx})" title="Delete">ðŸ—‘</button>
+                        <button onclick="editStudent(${idx})" title="Edit">✏️</button>
+                        <button onclick="deleteStudent(${idx})" title="Delete">🗑</button>
                     </div>
                 `;
                 list.appendChild(item);
@@ -2720,7 +2720,7 @@
         // --- Import Functions ---
 
         function showImportHelp() {
-            alert(`ðŸ“¥ Import Students Help
+            alert(`📥 Import Students Help
 
 CSV Format:
 Roll,Name,USN
@@ -2732,10 +2732,10 @@ Same columns: Roll, Name, USN
 First row should be headers.
 
 Tips:
-â€¢ Roll and Name are required
-â€¢ USN is optional
-â€¢ Duplicate rolls will be skipped
-â€¢ Students will be added to existing list`);
+• Roll and Name are required
+• USN is optional
+• Duplicate rolls will be skipped
+• Students will be added to existing list`);
         }
 
         function importCSV(input) {
@@ -2743,7 +2743,7 @@ Tips:
             if (!file) return;
 
             const status = document.getElementById('import-status');
-            status.innerHTML = 'â³ Reading file...';
+            status.innerHTML = '⏳ Reading file...';
 
             const reader = new FileReader();
             reader.onload = function (e) {
@@ -2752,7 +2752,7 @@ Tips:
                     const lines = text.split(/\r?\n/).filter(line => line.trim());
 
                     if (lines.length < 2) {
-                        status.innerHTML = 'âŒ File is empty or has no data rows';
+                        status.innerHTML = '❌ File is empty or has no data rows';
                         return;
                     }
 
@@ -2763,7 +2763,7 @@ Tips:
                     const usnIdx = header.findIndex(h => h.includes('usn') || h.includes('id') || h.includes('reg'));
 
                     if (nameIdx === -1) {
-                        status.innerHTML = 'âŒ Could not find "Name" column in CSV';
+                        status.innerHTML = '❌ Could not find "Name" column in CSV';
                         return;
                     }
 
@@ -2796,12 +2796,12 @@ Tips:
 
                     classConfig.students.sort((a, b) => parseInt(a.roll) - parseInt(b.roll));
                     renderManageStudents();
-                    status.innerHTML = `âœ… Imported ${added} students` + (skipped > 0 ? ` (${skipped} duplicates skipped)` : '');
+                    status.innerHTML = `✅ Imported ${added} students` + (skipped > 0 ? ` (${skipped} duplicates skipped)` : '');
                     showToast(`Imported ${added} students`);
 
                 } catch (err) {
                     console.error(err);
-                    status.innerHTML = 'âŒ Error parsing CSV file';
+                    status.innerHTML = '❌ Error parsing CSV file';
                 }
             };
             reader.readAsText(file);
@@ -2833,7 +2833,7 @@ Tips:
             if (!file) return;
 
             const status = document.getElementById('import-status');
-            status.innerHTML = 'â³ Reading Excel file...';
+            status.innerHTML = '⏳ Reading Excel file...';
 
             const reader = new FileReader();
             reader.onload = function (e) {
@@ -2849,7 +2849,7 @@ Tips:
                     const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
                     if (json.length < 2) {
-                        status.innerHTML = 'âŒ Excel file is empty or has no data rows';
+                        status.innerHTML = '❌ Excel file is empty or has no data rows';
                         return;
                     }
 
@@ -2860,7 +2860,7 @@ Tips:
                     const usnIdx = header.findIndex(h => h.includes('usn') || h.includes('id') || h.includes('reg'));
 
                     if (nameIdx === -1) {
-                        status.innerHTML = 'âŒ Could not find "Name" column in Excel';
+                        status.innerHTML = '❌ Could not find "Name" column in Excel';
                         return;
                     }
 
@@ -2893,12 +2893,12 @@ Tips:
 
                     classConfig.students.sort((a, b) => parseInt(a.roll) - parseInt(b.roll));
                     renderManageStudents();
-                    status.innerHTML = `âœ… Imported ${added} students` + (skipped > 0 ? ` (${skipped} duplicates skipped)` : '');
+                    status.innerHTML = `✅ Imported ${added} students` + (skipped > 0 ? ` (${skipped} duplicates skipped)` : '');
                     showToast(`Imported ${added} students`);
 
                 } catch (err) {
                     console.error(err);
-                    status.innerHTML = 'âŒ Error parsing Excel file';
+                    status.innerHTML = '❌ Error parsing Excel file';
                 }
             };
             reader.readAsArrayBuffer(file);
@@ -2953,7 +2953,7 @@ Tips:
                         onchange="updateSubject(${idx}, this.value)" 
                         onblur="updateSubject(${idx}, this.value)"
                         style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.95rem;">
-                    <button onclick="deleteSubject(${idx})" style="padding: 8px 12px; background: #ef4444; color: white; border: none; border-radius: 8px; cursor: pointer;">ðŸ—‘</button>
+                    <button onclick="deleteSubject(${idx})" style="padding: 8px 12px; background: #ef4444; color: white; border: none; border-radius: 8px; cursor: pointer;">🗑</button>
                 `;
                 list.appendChild(item);
             });
@@ -3069,7 +3069,7 @@ Tips:
             if (installBtn) {
                 installBtn.style.display = 'none';
             }
-            showToast('ðŸŽ‰ App installed successfully!');
+            showToast('🎉 App installed successfully!');
         });
 
         // Install PWA function
@@ -3098,7 +3098,7 @@ Tips:
             const toast = document.createElement('div');
             toast.className = 'toast update-toast';
             toast.innerHTML = `
-                <span>ðŸ”„ New version available!</span>
+                <span>🔄 New version available!</span>
                 <button onclick="location.reload()" style="margin-left: 10px; padding: 5px 10px; background: white; color: #004E89; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">
                     Refresh
                 </button>
