@@ -1,12 +1,14 @@
 // Service Worker for Class Attendance Tracker PWA
 // Version-based cache busting
-const CACHE_VERSION = 'v1.1.0';
+const CACHE_VERSION = 'v1.2.1';
 const CACHE_NAME = `attendance-tracker-${CACHE_VERSION}`;
 
 // Assets to cache for offline use
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
+    './styles.css',
+    './app.js',
     './manifest.json',
     './icons/icon-72.png',
     './icons/icon-96.png',
@@ -18,8 +20,9 @@ const ASSETS_TO_CACHE = [
     './icons/icon-512.png',
     // External CDN resources
     'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js',
-    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap'
+    'https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&display=swap'
 ];
 
 // Install Event - Cache all assets
