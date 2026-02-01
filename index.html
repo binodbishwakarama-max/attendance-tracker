@@ -746,6 +746,21 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        // Robust Service Worker Registration for GitHub Pages
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // We use ./service-worker.js to handle subpaths like /attendance-tracker/
+                navigator.serviceWorker.register('./service-worker.js', { scope: './' })
+                    .then(registration => {
+                        console.log('✅ ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.error('❌ ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 
 </html>
