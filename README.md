@@ -1,64 +1,65 @@
 # 📱 Class Attendance Tracker
 
-![Project Status](https://img.shields.io/badge/status-live-success?style=flat-square)
-![PWA](https://img.shields.io/badge/PWA-Ready-blueviolet?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+![Project Status](https://img.shields.io/badge/status-active-success?style=for-the-badge)
+![PWA](https://img.shields.io/badge/PWA-Ready-blueviolet?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
 
-A modern, offline-first Progressive Web App (PWA) designed to replace paper attendance sheets. Built with a focus on speed, aesthetics, and usability without the bloat of heavy frameworks.
+> **College Project: Offline-First Attendance System**
 
-🔗 **[Live Demo](https://binodbishwakarama-max.github.io/attendance-tracker/)**
+A modern, mobile-first Progressive Web App (PWA) designed to replace paper attendance sheets. Built for speed, reliability, and ease of use in classrooms with poor connectivity.
+
+<div align="center">
+
+<h3>
+  <a href="https://binodbishwakarama-max.github.io/attendance-tracker/">🌐 Open Live App</a>
+  <span> | </span>
+  <a href="PROJECT_GUIDE.md">📚 View Project Report</a>
+</h3>
+
+</div>
 
 ---
 
 ## ✨ Features
 
-- **⚡ Offline First:** Fully functional without an internet connection using Service Workers.
-- **📱 Installable:** Add to Home Screen on iOS and Android (PWA).
-- **🎨 Glassmorphic UI:** Modern layout with dark mode, animations, and battery saver option.
-- **📤 Powerful Exports:** 
-  - Generate professional **PDF** reports.
-  - Export data to **Excel (.xlsx)**.
-  - Share summaries directly to **WhatsApp**.
-- **🧠 Smart Insights:** Tracks attendance streaks, monthly stats, and flags frequent absentees.
-- **🛡️ Data Persistence:** Auto-saves every interaction to LocalStorage.
+- **⚡ Offline First:** Fully functional without internet using Service Workers (v1.2.1).
+- **📱 Installable:** Works like a native app on Android/iOS.
+- **🎨 Modern UI:** Glassmorphism design, Dark Mode, and smooth animations.
+- **📤 Professional Exports:** 
+  - **PDF Reports** (Absentee/Full List).
+  - **Excel Export** for deeper analysis.
+  - **WhatsApp** integration for instant sharing.
+- **🛡️ Secure:** Data stays on your device (LocalStorage).
 
 ## 📸 Screenshots
 
-<!-- Add your screenshots here -->
+<!-- Add your actual screenshots in the /screenshots folder and link them here -->
 <div align="center">
-  <img src="https://via.placeholder.com/200x400?text=Home+Screen" alt="Home Screen" width="200" />
-  <img src="https://via.placeholder.com/200x400?text=Attendance+List" alt="Student List" width="200" />
-  <img src="https://via.placeholder.com/200x400?text=Dark+Mode" alt="Dark Mode" width="200" />
+  <img src="https://via.placeholder.com/200x400?text=Home+Screen" alt="Home Screen" width="180" />
+  <img src="https://via.placeholder.com/200x400?text=Attendance+List" alt="Student List" width="180" />
+  <img src="https://via.placeholder.com/200x400?text=Dark+Mode" alt="Dark Mode" width="180" />
 </div>
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Tools
 
-- **Frontend:** HTML5, CSS3 (Custom Properties & Animations), Vanilla JavaScript.
-- **PWA:** Service Workers, Web Manifest.
-- **Libraries:** 
-  - `jspdf` (PDF Generation)
-  - `xlsx` (Excel Export)
-  - `animate.css` (Animations)
+| Category | Technologies Used |
+|----------|-------------------|
+| **Core** | HTML5, CSS3, JavaScript (ES6+) |
+| **Logic** | Service Workers, Web Manifest, LocalStorage API |
+| **Tools** | Git, GitHub Pages, PWABuilder (for APK) |
+| **Libs** | `jspdf`, `xlsx`, `animate.css` |
 
-## 🚀 Running Locally
+## 🚀 How to Run
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/binodbis/attendance-tracker.git
-   ```
+1. **Visit the Live Link**: [Click Here](https://binodbishwakarama-max.github.io/attendance-tracker/)
+2. **Install**:
+   - **Android**: Tap "Add to Home Screen" or install the APK.
+   - **iOS**: Tap Share -> "Add to Home Screen".
+   - **Desktop**: Click the install icon in the URL bar.
 
-2. **Navigate to the directory**
-   ```bash
-   cd attendance-tracker
-   ```
+## 📄 Project Documentation
 
-3. **Launch**
-   - Simply open `index.html` in your browser.
-   - For PWA features (Service Worker), use a local server (e.g., Live Server in VS Code).
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+For a detailed breakdown of the development process, tools, and how to publish to the Play Store, read the full **[Project Guide](PROJECT_GUIDE.md)**.
 
 ---
 
