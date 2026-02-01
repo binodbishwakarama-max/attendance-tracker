@@ -36,20 +36,10 @@
       "type": "image/png"
     },
     {
-      "src": "icons/icon-152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
-    {
       "src": "icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "icons/icon-384.png",
-      "sizes": "384x384",
-      "type": "image/png"
     },
     {
       "src": "icons/icon-512.png",
@@ -62,6 +52,35 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Take Attendance",
+      "short_name": "Start",
+      "url": "./index.html",
+      "icons": [
+        {
+          "src": "icons/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop Home Screen"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Home Screen"
     }
   ]
 }
