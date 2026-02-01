@@ -6,7 +6,7 @@
 
 A modern, offline-first Progressive Web App (PWA) designed to replace paper attendance sheets. Built with a focus on speed, aesthetics, and usability without the bloat of heavy frameworks.
 
-🔗 **[Live Demo](https://binodbis.github.io/attendance-tracker/)**
+🔗 **[Live Demo](https://binodbishwakarama-max.github.io/attendance-tracker/)**
 
 ---
 
