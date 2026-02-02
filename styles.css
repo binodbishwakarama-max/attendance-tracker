@@ -191,6 +191,7 @@ body {
     min-height: 100vh;
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
 }
 
 /* Layout Container */
@@ -326,6 +327,7 @@ h3 {
     top: 0;
     z-index: 1000;
     padding: 10px 15px;
+    padding-top: calc(10px + env(safe-area-inset-top));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -983,6 +985,7 @@ h3 {
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     padding: 15px 20px;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
     display: flex;
     gap: 15px;
     z-index: 1000;

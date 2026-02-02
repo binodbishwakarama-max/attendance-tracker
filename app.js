@@ -3073,9 +3073,18 @@ window.addEventListener('appinstalled', () => {
 });
 
 // Install PWA function
+// Install PWA function
 function installPWA() {
+    // Check for iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+        alert('To install on iOS:\n\n1. Tap the Share button (square with arrow)\n2. Scroll down and tap "Add to Home Screen"');
+        return;
+    }
+
     if (!deferredPrompt) {
-        showToast('App is already installed or not supported');
+        showToast('App is already installed/running as PWA');
         return;
     }
 
@@ -3142,4 +3151,13 @@ if (isPWA()) {
 }
 
 // Initialize the app on page load
+// Initialize the app on page load
 initApp();
+
+// Force install button on iOS if not PWA
+if (!isPWA() && /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+    const installBtn = document.getElementById('pwa-install-btn');
+    if (installBtn) {
+        installBtn.style.display = 'flex';
+    }
+}
